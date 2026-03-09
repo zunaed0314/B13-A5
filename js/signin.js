@@ -3,7 +3,7 @@ const user = document.getElementById('username');
 const pass = document.getElementById('password');
 
 signin.addEventListener('click', function(){
-    if(user.value === "admin" && pass.value==="admin123"){
+    if(user.value.trim() === "admin" && pass.value.trim() === "admin123"){
         window.location.assign('home.html');
     }
     else{
