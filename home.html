@@ -23,8 +23,8 @@
 
 
 <body class="bg-gray-100">
-    <section id="up" class="py-4 px-13.5 flex flex-wrap justify-center  sm:justify-between shadow sticky bg-base-100 space-y-3">
-        <div class="flex gap-3 items-center">
+    <section id="up" class="py-4 px-13.5 flex flex-col md:flex-row justify-center md:justify-between shadow sticky bg-base-100 space-y-3">
+        <div class="flex gap-3 items-center mx-auto md:mx-0">
             <img src="assets/github-logo.png" class="w-10 h-10">
             <h1 class="text-2xl font-bold">Github Isssues Tracker</h1>
         </div>
@@ -46,7 +46,7 @@
 
 
     <section class="w-11/12 mx-auto m-10 ">
-        <div class="flex gap-3 justify-center sm:justify-start">
+        <div class="flex gap-3 justify-center md:justify-start">
             <button id="all" class="btns btn btn-primary btn-outline shadow btn-active" onclick="btn(this)">All</button>
             <button id="opened" class="btns btn btn-primary btn-outline shadow" onclick="btn(this)">Open</button>
             <button id="closed" class="btns btn btn-primary btn-outline shadow" onclick="btn(this)">Closed</button>
