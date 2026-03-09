@@ -97,7 +97,7 @@ const displayDetails = (issue) => {
         
         
         
-        <div class="flex justify-between text-sm bg-gray-100 py-4 px-5">
+        <div class="grid grid-cols-2 text-sm bg-gray-100 py-4 px-5">
             <div class="mb-2">
                 <p class="text-gray-500">Assignee:</p>
                 <p class="font-semibold">${issue.assignee ? issue.assignee : "No Assignee"}</p>
