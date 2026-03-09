@@ -23,10 +23,11 @@
 
 
 <body class="bg-gray-100">
-    <section id="up" class="py-4 px-13.5 flex flex-col md:flex-row justify-center md:justify-between shadow bg-base-100 space-y-3 items-center">
+    <section id="up"
+        class="py-4 px-13.5 flex flex-col md:flex-row justify-center md:justify-between shadow bg-base-100 space-y-3 items-center">
         <div class="flex gap-3 items-center mx-auto md:mx-0">
             <img src="assets/github-logo.png" class="w-10 h-10">
-            <h1 class="text-2xl font-bold">Github Isssues Tracker</h1>
+            <h1 class="text-xl sm:text-2xl font-bold">Github Isssues Tracker</h1>
         </div>
         <div class="flex gap-2 justify-center">
             <label class="input">
@@ -54,25 +55,26 @@
     </section>
 
     <section class="w-11/12 shadow mx-auto rounded-md  bg-base-100">
-        <div class="border-b border-gray-300 p-5 flex justify-between items-center">
-            <div class="flex flex-row gap-2">
-                <div class="h-10 w-10 bg-gray-300 flex justify-center items-center rounded-full">
-                    <img src="assets/Aperture.png">
-                </div>
-                <div>
-                    <p id="issue-numbers" class="font-medium text-sm"></p>
-                    <p class="text-gray-400 text-sm">Track and manage your project issues</p>
+        <div class="border-b border-gray-300 p-3 sm:p-5 flex justify-between items-center">
+            <div class="flex flex-row gap-2 items-center">
+                <!-- <div class="h-10 md:h-12 w-10 md:w-12 bg-gray-300 rounded-full flex justify-center items-center border-gray-400 overflow-hidden"> -->
+                    <img src="assets/Aperture.png" class="h-12 w-12 rounded-full object-cover border-4 border-gray-200"
+                        alt="Aperture">
+                <!-- </div> -->
+                <div class="flex flex-wrap w-30 sm:w-40 md:w-auto flex-col">
+                    <p id="issue-numbers" class="font-medium text-sm sm:text-xl"></p>
+                    <p class="text-gray-400 text-xs sm:text-sm">Track and manage your project issues</p>
                 </div>
             </div>
-            <div class="status-colors flex gap-3 items-center">
+            <div class="status-colors flex gap-1 md:gap-2 items-center">
                 <div class="w-4 h-4 bg-green-400 rounded-full">
 
                 </div>
-                <p class="text-sm text-gray-600">Open</p>
+                <p class="text-sm text-gray-500 font-semibold">Open</p>
                 <div class="w-4 h-4 bg-purple-400 rounded-full">
 
                 </div>
-                <p class="text-sm text-gray-600">CLosed</p>
+                <p class="text-sm text-gray-500 font-semibold">Closed</p>
             </div>
         </div>
 
