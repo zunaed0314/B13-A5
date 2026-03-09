@@ -196,7 +196,7 @@ const displayIssues = (datas, id) => {
         }
 
         cardDiv.innerHTML = `
-            <div class="py-4 rounded-md border-t-4 ${borderClass} shadow-lg flex flex-col gap-3 h-70 sm:h-75 md:h-85
+            <div class="py-4 rounded-md border-t-4 ${borderClass} shadow-lg flex flex-col gap-3 h-78 sm:h-83 md:h-88
             transition-transform duration-300 hover:-translate-y-1">
                 <div class="flex justify-between px-3">
                     <div id="status-image">
