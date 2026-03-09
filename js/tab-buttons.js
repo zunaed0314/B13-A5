@@ -52,7 +52,7 @@ const displayDetails = (issue) => {
     const modal = document.getElementById('issue_modal');
     const detailsContainer = document.getElementById('details-container');
 
-    const labelsHtml = bringTheLabels(issue.labels || []);
+    const labelsHtml = bringTheLabels(issue.labels);
 
     let statusImage = '';
     if (issue.status === 'open') {
@@ -75,7 +75,7 @@ const displayDetails = (issue) => {
             <h3 class="text-xl font-bold mx-auto">${issue.title}</h3>
         </div>
         
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1">
             <span class="flex items-center gap-1">
                 ${checkStatus(issue.status)}
             </span>
@@ -91,7 +91,7 @@ const displayDetails = (issue) => {
             </div>
         </div>
         
-        <div class="p-4 rounded-lg">
+        <div class="p-1 rounded-lg">
             <p class="text-gray-700">${issue.description}</p>
         </div>
         
