@@ -21,24 +21,42 @@ function btn(clickedBtn) {
 }
 
 
+const bringTheLabels = (labels) =>{
+    return labels.map((label) => 
+        `<span class="bg-yellow-200 text-yellow-600 px-3 rounded-full font-semibold 
+                    inline-flex items-center min-h-6 py-0.5">${label}</span>`
+    ).join(" ");
+}
+
+
 //DISPLAY CARDS BASED ON ID
 const displayIssues = (datas, id) => {
+
+    
+
     const issueContainer = document.getElementById(id);
     issueContainer.innerHTML = "";
 
     const allSections = document.querySelectorAll('#all-section, #open-section, #close-section');
     allSections.forEach(section => section.classList.add('hidden'));
-    
+
     issueContainer.classList.remove('hidden');
-    
+
     console.log(id);
+
+    const issues = document.getElementById('issue-numbers');
+    issues.textContent = `${datas.length} Issues`;
+
 
     let filteredData = datas;
     if (id === 'open-section') {
         filteredData = datas.filter(data => data.status === 'open');
+       
     } else if (id === 'close-section') {
         filteredData = datas.filter(data => data.status === 'closed');
     }
+
+    issues.textContent = `${filteredData.length} Issues`;
 
     for (let data of filteredData) {
         const btnDiv = document.createElement("div");
@@ -66,8 +84,13 @@ const displayIssues = (datas, id) => {
             priorityClass = `bg-gray-300 text-gray-700`;
         }
 
+
+        
+
+
         btnDiv.innerHTML = `
-            <div class="py-4 rounded-md border-t-4 ${borderClass} shadow-md flex flex-col gap-3 h-80">
+            <div class="py-4 rounded-md border-t-4 ${borderClass} shadow-lg flex flex-col gap-3 h-85 
+            transition-transform duration-300 hover:-translate-y-1">
                 <div class="flex justify-between px-3">
                     <div id="status-image">
                         ${statusImage}
@@ -76,9 +99,8 @@ const displayIssues = (datas, id) => {
                 </div>
                 <p class="font-semibold px-3">${data.title}</p>
                 <p class="text-gray-600 text-sm px-3 flex-grow">${data.description}</p>
-                <div id="tags">
-                    <span></span>
-                    <span></span>
+                <div id="labels" class="flex gap-2 px-3">
+                    ${bringTheLabels(data.labels)}
                 </div>
                 <hr class="border-t border-gray-300">
                 <p class="text-gray-600 text-sm px-3">${data.id} ${data.author}</p>
@@ -91,6 +113,7 @@ const displayIssues = (datas, id) => {
 };
 
 function loadTheCards(id) {
+
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
         .then((res) => res.json())
         .then((json) => displayIssues(json.data, id));
