@@ -10,6 +10,8 @@ function btn(clickedBtn) {
     document.getElementById('close-section').classList.add("hidden");
 
 
+    document.getElementById('input-search').value = '';
+
 
     if (clickedBtn.id === 'all') {
         loadTheCards('all-section');
@@ -95,7 +97,7 @@ const displayDetails = (issue) => {
         
         
         
-        <div class="grid grid-cols-2 gap-4 text-sm bg-gray-100 p-4">
+        <div class="flex justify-between text-sm bg-gray-100 py-4 px-5">
             <div class="mb-2">
                 <p class="text-gray-500">Assignee:</p>
                 <p class="font-semibold">${issue.assignee ? issue.assignee : "No Assignee"}</p>
@@ -194,7 +196,7 @@ const displayIssues = (datas, id) => {
         }
 
         cardDiv.innerHTML = `
-            <div class="py-4 rounded-md border-t-4 ${borderClass} shadow-lg flex flex-col gap-3 h-85 
+            <div class="py-4 rounded-md border-t-4 ${borderClass} shadow-lg flex flex-col gap-3 h-70 sm:h-75 md:h-85
             transition-transform duration-300 hover:-translate-y-1">
                 <div class="flex justify-between px-3">
                     <div id="status-image">
