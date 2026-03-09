@@ -23,12 +23,12 @@
 
 
 <body class="bg-gray-100">
-    <section id="up" class="p-4 flex justify-between shadow sticky bg-base-100">
-        <div class="flex gap-3 justify-center items-center">
+    <section id="up" class="p-4 flex flex-wrap justify-center  sm:justify-between shadow sticky bg-base-100 space-y-3 bg-red-700">
+        <div class="flex gap-3 items-center">
             <img src="assets/github-logo.png" class="w-10 h-10">
             <h1 class="text-2xl font-bold">Github Isssues Tracker</h1>
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-2 justify-center">
             <label class="input">
                 <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
@@ -46,7 +46,7 @@
 
 
     <section class="w-11/12 mx-auto m-10 ">
-        <div class="flex gap-3">
+        <div class="flex gap-3 justify-center sm:justify-start">
             <button id="all" class="btns btn btn-primary btn-outline shadow btn-active" onclick="btn(this)">All</button>
             <button id="opened" class="btns btn btn-primary btn-outline shadow" onclick="btn(this)">Open</button>
             <button id="closed" class="btns btn btn-primary btn-outline shadow" onclick="btn(this)">Closed</button>
@@ -82,13 +82,25 @@
         </section>
         <!-- CARD SECTIONS -->
         <section id="allIssues">
-            <div id="all-section" class="grid grid-cols-4 gap-4 p-5"></div>
-            <div id="open-section" class="grid grid-cols-4 gap-6 p-5 hidden"></div>
-            <div id="close-section" class="grid grid-cols-4 gap-6 p-5 hidden"></div>
+            <div id="all-section" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-5"></div>
+            <div id="open-section" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-5 hidden"></div>
+            <div id="close-section" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-5 hidden"></div>
         </section>
 
         <script src="js/tab-buttons.js"></script>
     </section>
+
+    <dialog id="issue_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="details-container" class="space-y-5"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            
+            <button class="btn btn-primary">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 </body>
 
 </html>
