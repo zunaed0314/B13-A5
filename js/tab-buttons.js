@@ -21,18 +21,30 @@ function btn(clickedBtn) {
 }
 
 
+const removeActive = () => {
+  const issueButtons = document.querySelectorAll(".btns");
+  issueButtons.forEach((btn) => btn.classList.remove("active"));
+};
+
+const manageSpinner = (status) => {
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("allIssues").classList.add("hidden");
+  } else {
+    document.getElementById("allIssues").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
+};
+
 const bringTheLabels = (labels) =>{
     return labels.map((label) => 
-        `<span class="bg-yellow-200 text-yellow-600 px-3 rounded-full font-semibold 
+        `<span class="bg-yellow-400 text-yellow-700 px-3 rounded-full font-semibold 
                     inline-flex items-center min-h-6 py-0.5">${label}</span>`
     ).join(" ");
 }
 
 
-//DISPLAY CARDS BASED ON ID
 const displayIssues = (datas, id) => {
-
-    
 
     const issueContainer = document.getElementById(id);
     issueContainer.innerHTML = "";
@@ -41,8 +53,6 @@ const displayIssues = (datas, id) => {
     allSections.forEach(section => section.classList.add('hidden'));
 
     issueContainer.classList.remove('hidden');
-
-    console.log(id);
 
     const issues = document.getElementById('issue-numbers');
     issues.textContent = `${datas.length} Issues`;
@@ -79,7 +89,7 @@ const displayIssues = (datas, id) => {
         if (data.priority === 'high') {
             priorityClass = `bg-red-300 text-red-700`;
         } else if (data.priority === 'medium') {
-            priorityClass = `bg-yellow-300 text-yellow-700`;
+            priorityClass = `bg-yellow-200 text-yellow-600`;
         } else {
             priorityClass = `bg-gray-300 text-gray-700`;
         }
@@ -110,9 +120,11 @@ const displayIssues = (datas, id) => {
 
         issueContainer.append(btnDiv);
     }
+    manageSpinner(false);
 };
 
 function loadTheCards(id) {
+    manageSpinner(true);
 
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
         .then((res) => res.json())
@@ -120,3 +132,33 @@ function loadTheCards(id) {
 }
 
 loadTheCards('all-section');
+
+
+document.getElementById("btn-search").addEventListener("click", () => {
+  removeActive();
+  
+  const filterButtons = document.querySelectorAll(".btns");
+  filterButtons.forEach(btn => btn.classList.remove("btn-active"));
+  
+  const input = document.getElementById("input-search");
+  const searchValue = input.value.trim().toLowerCase();
+
+  if (searchValue === "") {
+    loadTheCards('all-section');
+    return;
+  }
+
+  manageSpinner(true);
+
+  fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then((res) => res.json())
+    .then((data) => {
+      const allIssues = data.data;
+      
+      const filteredIssues = allIssues.filter((issue) => 
+        JSON.stringify(issue).toLowerCase().includes(searchValue)
+      );
+
+      displayIssues(filteredIssues, 'all-section');
+    });
+});

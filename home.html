@@ -37,9 +37,9 @@
                         <path d="m21 21-4.3-4.3"></path>
                     </g>
                 </svg>
-                <input type="search" required placeholder="Search" />
+                <input id="input-search" type="search" required placeholder="Search" />
             </label>
-            <button class="btn btn-primary">+New Issue</button>
+            <button id="btn-search" class="btn btn-primary">SEARCH</button>
         </div>
     </section>
 
@@ -70,17 +70,22 @@
                 </div>
                 <p class="text-sm text-gray-600">Open</p>
                 <div class="w-4 h-4 bg-purple-400 rounded-full">
-                    
+
                 </div>
                 <p class="text-sm text-gray-600">CLosed</p>
             </div>
         </div>
 
 
+        <section id="spinner" class="flex justify-center items-center py-10 hidden">
+            <span class="loading loading-bars loading-xl"></span>
+        </section>
         <!-- CARD SECTIONS -->
-        <div id="all-section" class="grid grid-cols-4 gap-4 p-5"></div>
-        <div id="open-section" class="grid grid-cols-4 gap-6 p-5 hidden"></div>
-        <div id="close-section" class="grid grid-cols-4 gap-6 p-5 hidden"></div>
+        <section id="allIssues">
+            <div id="all-section" class="grid grid-cols-4 gap-4 p-5"></div>
+            <div id="open-section" class="grid grid-cols-4 gap-6 p-5 hidden"></div>
+            <div id="close-section" class="grid grid-cols-4 gap-6 p-5 hidden"></div>
+        </section>
 
         <script src="js/tab-buttons.js"></script>
     </section>
