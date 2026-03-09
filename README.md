@@ -6,7 +6,7 @@ Ans: var: Function-scoped, can be redeclared and reassigned. Older way of declar
 
 2. What is the spread operator (...)?
 
-Ans: The spread operator (...) is used to expand or spread the values of an array or object.
+Ans: The spread operator (...) is used to expand or spread the values of an array or object. Array is one object. But we may need each elements. So we use spread operator.
 
 3. What is the difference between map(), filter(), and forEach()?
 
@@ -21,4 +21,4 @@ Ans: An arrow function is a shorter and cleaner way to write a function in JavaS
 5. What is template literal?
 
 Ans: Template literals are a new and easier way to write strings in JavaScript.
-     Instead of using single ' ' or double " " quotes, we use this (` `). This lets you insert variables directly inside the string, which makes the code cleaner.
+     Instead of using single ' ' or double " " quotes, we use this ` `. This lets you insert variables directly inside the string, which makes the code cleaner.
