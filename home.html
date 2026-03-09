@@ -22,7 +22,7 @@
 </head>
 
 
-<body class="bg-soft">
+<body>
     <section id="up" class="p-4 flex justify-between shadow sticky">
         <div class="flex gap-3 justify-center items-center">
             <img src="assets/github-logo.png" class="w-10 h-10">
@@ -47,9 +47,9 @@
 
     <section class="w-9/12 mx-auto m-10">
         <div class="flex gap-3">
-            <button id="all" class="btns btn btn-primary btn-outline btn-active" onclick="btn(this)">All</button>
-            <button id="opened" class="btns btn btn-primary btn-outline" onclick="btn(this)">Open</button>
-            <button id="closed" class="btns btn btn-primary btn-outline" onclick="btn(this)">Closed</button>
+            <button id="all" class="btns btn btn-primary btn-outline shadow btn-active" onclick="btn(this)">All</button>
+            <button id="opened" class="btns btn btn-primary btn-outline shadow" onclick="btn(this)">Open</button>
+            <button id="closed" class="btns btn btn-primary btn-outline shadow" onclick="btn(this)">Closed</button>
         </div>
     </section>
 
@@ -78,18 +78,11 @@
 
 
         <!-- CARD SECTIONS -->
-        <div id="all" class="grid grid-cols-4 gap-4 p-5">
-                    
+        <div id="all-section" class="grid grid-cols-4 gap-4 p-5"></div>
+        <div id="open-section" class="grid grid-cols-4 gap-6 p-5 hidden"></div>
+        <div id="close-section" class="grid grid-cols-4 gap-6 p-5 hidden"></div>
 
-        </div>
-
-        <div id="open" class="grid grid-cols-4 gap-6 p-5"></div>
-
-        <div id="close" class="grid grid-cols-4 gap-6 p-5"></div>
-
-    </section>
-
-    <script src="js/tab-buttons.js"></script>
+        <script src="js/tab-buttons.js"></script>
 </body>
 
 </html>
